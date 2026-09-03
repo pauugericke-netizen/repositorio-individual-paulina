@@ -1,0 +1,104 @@
+library(here)
+library(readr)
+
+setwd("~/Desktop/Introducción a la Ciencia de Datos")
+
+archivo <- "2pobporsextodpto .csv"
+ruta_csv <- here("data", archivo)
+
+# 1. Cargar el archivo
+df <- read_csv(ruta_csv, col_names = FALSE, show_col_types = FALSE)
+
+# 2. Ver el archivo
+df
+
+# 3. Eliminar las filas que contienen los encabezados
+df <- df[-c(1, 2), ]
+
+# 4. Poner nombres a las columnas
+names(df) <- c(
+  "Hombres_0_14",
+  "Hombres_15_64",
+  "Hombres_65_mas",
+  "Hombres_Total",
+  "Hombres_Total2",
+  "Mujeres_0_14",
+  "Mujeres_15_64",
+  "Mujeres_65_mas",
+  "Mujeres_Total",
+  "Mujeres_Total2",
+  "Total_0_14",
+  "Total_15_64",
+  "Total_65_mas",
+  "Total_Total",
+  "Total_Total2"
+)
+
+# 5. Profiling inicial
+cat("--- Archivo cargado:", basename(ruta_csv), "---\n")
+cat("Dimensiones (filas, columnas):", dim(df), "\n")
+
+# 6. Estructura
+str(df)
+
+# 7. Primeras filas
+head(df)
+
+# 8. Valores únicos por columna
+cat("\nValores únicos por columna:\n")
+print(sapply(df, function(x) length(unique(x))))
+
+# 9. Valores nulos
+cat("\nValores nulos (NA) por columna:\n")
+print(colSums(is.na(df)))
+
+# 10. Cadenas vacías
+cat("\nCadenas vacías por columna:\n")
+print(sapply(df, function(x) sum(x == "", na.rm = TRUE)))
+
+# 11. Filas duplicadas
+cat("\nTotal de filas exactamente duplicadas:\n")
+print(sum(duplicated(df)))
+
+# 5. Convertir las columnas a numéricas
+df <- df |>
+  mutate(across(everything(), as.numeric))
+
+# 6. Profiling inicial
+cat("--- Archivo cargado:", basename(ruta_csv), "---\n")
+cat("Dimensiones (filas, columnas):", dim(df), "\n\n")
+
+# 7. Estructura
+str(df)
+
+# 8. Primeras filas
+head(df)
+
+# 9. Valores únicos por columna
+cat("\nValores únicos por columna:\n")
+print(sapply(df, function(x) length(unique(x))))
+
+# 10. Valores nulos
+cat("\nValores nulos (NA) por columna:\n")
+print(colSums(is.na(df)))
+
+# 11. Filas duplicadas
+cat("\nTotal de filas exactamente duplicadas:\n")
+print(sum(duplicated(df)))
+
+# 5. Detección de Columna ID (Comprobar valores únicos por columna)
+# Si el resultado es igual a nrow(df), esa columna es un ID único
+cat("\nValores únicos por columna (Buscar candidatos a ID):\n")
+sapply(df, function(x) length(unique(x)))
+
+# 6. Diagnóstico de datos faltantes y falsos nulos
+cat("\nValores nulos (NA) por columna:\n")
+colSums(is.na(df))
+
+cat("\nFalsos nulos (Cadenas vacías '') por columna:\n")
+colSums(df == "", na.rm = TRUE)
+
+# 7. Diagnóstico de filas duplicadas
+cat("\nTotal de filas exactamente duplicadas:\n")
+sum(duplicated(df))
+
