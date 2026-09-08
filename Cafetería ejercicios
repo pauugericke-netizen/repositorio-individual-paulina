@@ -1,39 +1,74 @@
+# %%
+from pathlib import Path
 import pandas as pd
 
-# Crear los datos
-data = {
-    "id": [1, 2, 3, 4, 5],
-    "frecuencia": [
-        "1 a 3 veces",
-        "4 a 8 veces",
-        "Nunca",
-        "Más de 8 veces",
-        "1 a 3 veces"
-    ],
-    "prod_cafe": [1, 1, None, 1, 0],
-    "prod_comida": [1, 1, None, 0, 1],
-    "prod_frias": [0, 1, None, 1, 1],
-    "prod_otros": [0, 0, None, 1, 0],
-    "atencion": [4, 5, None, 3, 4],
-    "pago_efectivo": [1, 0, None, 1, 1],
-    "pago_tarjeta": [1, 1, None, 1, 0],
-    "pago_transferencia": [0, 0, None, 1, 1],
-    "estudiante": [True, True, False, True, False],
-    "edad": [21, 23, 35, 20, 29],
-    "mejora": [
-        "Más variedad de comida",
-        "Que haya más mesas",
-        "Más opciones saludables",
-        "Mejorar los tiempos de atención",
-        "Bajar los precios"
-    ]
-}
+# 1. Definir la ruta raíz del proyecto o del directorio de trabajo actual
+BASE_DIR = Path.cwd()
 
-# Crear DataFrame
-df = pd.DataFrame(data)
+# 2. Construir la ruta del archivo CSV
+archivo = "encuesta_cafeteria.csv"
+ruta_csv = BASE_DIR / "clases" / "clase4" / archivo
 
-# Guardar como CSV
-df.to_csv("encuesta_cafeteria.csv", index=False, encoding="utf-8-sig")
+# 3. Verificar que el archivo realmente existe antes de cargarlo
+if not ruta_csv.exists():
+    raise FileNotFoundError(f"No se encontró el archivo en: {ruta_csv}")
 
-# Mostrar la tabla
-print(df)
+# 4. Cargar el archivo CSV
+df = pd.read_csv(ruta_csv)
+
+# 5. Inspección inicial de los datos
+print(f"--- Archivo cargado exitosamente desde: {ruta_csv.name} ---")
+print(df.info())
+
+print("\nPrimeras 5 filas:")
+print(df.head())
+
+
+# %%
+# 5.1. Dimensiones y estructura de los datos
+print("\n--- Información del DataFrame ---")
+df.info()
+
+# Dimensiones: (filas, columnas)
+print("\nDimensiones del dataset:")
+print(df.shape)
+
+
+# %%
+# 5.2. Filas únicas y búsqueda de posibles IDs
+
+# Cantidad de valores únicos en la columna ID
+print("\nCantidad de IDs únicos:")
+print(df["id"].nunique())
+
+# Comprobar si el ID es realmente único
+print("\n¿El ID es único?")
+print(df["id"].nunique() == len(df))
+
+# Valores únicos por columna
+print("\nValores únicos por columna:")
+print(df.nunique())
+
+
+# %%
+# 5.3. Datos faltantes
+
+print("\n--- Datos faltantes (NA) por columna ---")
+print(df.isnull().sum())
+
+print("\n--- Cadenas vacías por columna ---")
+print((df == "").sum())
+
+
+# %%
+# 5.4. Duplicados
+
+print("\n--- Duplicados ---")
+print(f"Cantidad de filas duplicadas: {df.duplicated().sum()}")
+
+
+# %%
+# 5.5. Primeras filas
+
+print("\n--- Primeras 5 filas ---")
+print(df.head())
