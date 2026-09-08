@@ -2,21 +2,23 @@
 from pathlib import Path
 import pandas as pd
 
-# 1. Definir la ruta raíz del proyecto o del directorio de trabajo actual
-BASE_DIR = Path.cwd()
+# 1. Definir la ruta donde se encuentra el archivo
+BASE_DIR = Path("/Users/Computacion2/Desktop/Introducción a la Ciencia de Datos/data")
 
-# 2. Construir la ruta del archivo CSV
-archivo = "encuesta_cafeteria.csv"
-ruta_csv = BASE_DIR / "clases" / "clase4" / archivo
+# 2. Nombre del archivo
+archivo = "Ejercicio intro - Hoja 2.csv"
 
-# 3. Verificar que el archivo realmente existe antes de cargarlo
+# 3. Construir la ruta completa
+ruta_csv = BASE_DIR / archivo
+
+# 4. Verificar que el archivo existe
 if not ruta_csv.exists():
     raise FileNotFoundError(f"No se encontró el archivo en: {ruta_csv}")
 
-# 4. Cargar el archivo CSV
+# 5. Cargar el archivo CSV
 df = pd.read_csv(ruta_csv)
 
-# 5. Inspección inicial de los datos
+# 6. Inspección inicial de los datos
 print(f"--- Archivo cargado exitosamente desde: {ruta_csv.name} ---")
 print(df.info())
 
@@ -26,22 +28,22 @@ print(df.head())
 
 # %%
 # 5.1. Dimensiones y estructura de los datos
+
 print("\n--- Información del DataFrame ---")
 df.info()
 
-# Dimensiones: (filas, columnas)
+# Dimensiones: filas y columnas
 print("\nDimensiones del dataset:")
 print(df.shape)
 
 
 # %%
-# 5.2. Filas únicas y búsqueda de posibles IDs
+# 5.2. Filas únicas: detectando la columna ID
 
-# Cantidad de valores únicos en la columna ID
 print("\nCantidad de IDs únicos:")
 print(df["id"].nunique())
 
-# Comprobar si el ID es realmente único
+# Comprobar si el ID es único
 print("\n¿El ID es único?")
 print(df["id"].nunique() == len(df))
 
