@@ -1,0 +1,35 @@
+print("\nGenerando gráficos en ./figuras/ ...")  
+
+# Gráfica de evolución del desempleo por departamento, destacando Montevideo
+fig, ax = plt.subplots(figsize=(10, 6))  # creamos la figura y definimos su tamaño
+
+# Recorre cada departamento y ordena sus datos cronológicamente
+for depto, g in desempleo.sort_values("Año").groupby("Departamento"):
+    if depto == MONTEVIDEO:
+        continue  # saltea Montevideo para graficarlo por separado
+
+    # ahora graficar cada departamento del interior en gris
+    ax.plot(g["Año"], g["Desempleo_%"], color="lightgray", linewidth=1, alpha=0.7)
+
+# selecciona y ordena los datos correspondientes a Montevideo
+g_mvd = desempleo[desempleo["Departamento"] == MONTEVIDEO].sort_values("Año")
+
+# grafica Montevideo en rojjo
+ax.plot(g_mvd["Año"], g_mvd["Desempleo_%"], color="crimson", linewidth=2.5,
+        label="Montevideo")
+
+# agregamos títulos y qué representa cada color
+ax.set_title("Evolución de la tasa de desempleo por departamento (2006-2024)\n"
+             "(gris = interior, rojo = Montevideo)")
+
+ax.set_xlabel("Año")  # Nombre del eje X.
+ax.set_ylabel("Desempleo (%)")  # nombre del eje y
+ax.legend()  # muestra la leyenda
+fig.tight_layout()  
+
+# Guarda el gráfico como archivo PNG en la carpeta de figuras
+fig.savefig(OUT_FIG_DIR / "01_desempleo_evolucion.png")
+
+plt.show()  # muestra el gráfic
+plt.close(fig) 
+
