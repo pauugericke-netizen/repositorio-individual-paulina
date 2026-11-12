@@ -1,13 +1,13 @@
 # =============================================================================
-# Clases 3 y 4 — Carga de datos (versión Python del ejercicio en R)
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
+# Clases 3 y 4 — Carga de datos 
 # =============================================================================
 # Mismo dataset que ejercicio_dataset_abierto.R: población por sexo, tramo de
 # edad y departamento (INE). El archivo va en la carpeta datos/ del repo.
 #
 # Flujo: ruta -> verificar -> cargar -> limpiar encabezados -> tipos -> perfilado
 # Instalación (una sola vez):  pip install pandas
+
+#Realizamos el trabajo con Leticia Cárpena, ayudadas por Joselina en clase
 # =============================================================================
 
 # %%
