@@ -1,16 +1,4 @@
-# =============================================================================
-# Clase IA — Leer un ticket de compra con inteligencia artificial
-# Mandar la foto de un ticket a Gemini (API de Google) y recibir una tabla CSV
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
-# =============================================================================
-# Antes de correrlo:
-#   1. Sacar una clave gratis en https://aistudio.google.com  ("Get API key")
-#   2. Guardarla en un archivo clave_gemini.txt en ESTA carpeta (claseIA_ticket/)
-#      -> está en .gitignore: la clave NUNCA se sube a GitHub
-#   3. Poner la foto del ticket en esta carpeta con el nombre ticket.jpg
-#   4. Instalar:  pip install requests pandas
-# =============================================================================
+
 
 # %%
 import base64
