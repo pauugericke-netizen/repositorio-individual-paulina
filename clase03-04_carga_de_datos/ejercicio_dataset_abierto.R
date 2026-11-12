@@ -1,10 +1,21 @@
-library(here)
-library(readr)
+# =============================================================================
+# Clases 3 y 4 — Carga de datos: ejercicio en clase con un dataset abierto
+# Introducción a la Ciencia de Datos — UM, FCEE
+# Paulina Gericke
+# =============================================================================
+# Dataset: población por sexo, tramo de edad y departamento (INE).
+# Pasos: cargar -> mirar -> quitar encabezados -> nombrar columnas ->
+#        convertir a numérico -> perfilado (id, nulos, vacíos, duplicados).
+# El archivo va en la carpeta datos/ del repositorio.
+# install.packages(c("here", "readr", "dplyr"))
+# =============================================================================
 
-setwd("~/Desktop/Introducción a la Ciencia de Datos")
+library(here)    # rutas relativas a la raíz del proyecto (sin setwd)
+library(readr)
+library(dplyr)   # para mutate() y across()
 
 archivo <- "2pobporsextodpto .csv"
-ruta_csv <- here("data", archivo)
+ruta_csv <- here("datos", archivo)
 
 # 1. Cargar el archivo
 df <- read_csv(ruta_csv, col_names = FALSE, show_col_types = FALSE)

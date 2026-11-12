@@ -1,0 +1,18 @@
+# Claves de APIs: nunca se suben
+clave_gemini.txt
+clave_groq.txt
+*.key
+.env
+
+# Resultados que se regeneran al correr los scripts
+salidas/
+claseIA_ticket/ticket_gemini.csv
+
+# Python / R / sistema
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+.Rhistory
+.RData
+.Rproj.user/
+.DS_Store
