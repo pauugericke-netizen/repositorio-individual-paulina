@@ -1,16 +1,4 @@
-# =============================================================================
-# Clase 7 — Carga de datos y rutas
-# Ejemplo: calidad del aire en Montevideo (ozono, PM2.5) y conteo vehicular
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
-# =============================================================================
-# Datos (Intendencia de Montevideo, catálogo de datos abiertos), en datos/:
-#   o3_01_2024_04_2024.csv         ozono, datos minutales por estación
-#   pm_2_5_01_2024_04_2024.csv     material particulado < 2,5 micras
-#   autoscope_04_2024_volumen.csv  conteo vehicular del Centro de Gestión de Movilidad
-#
-# Instalación (una sola vez):  pip install pandas matplotlib
-# =============================================================================
+
 
 # %%
 import os
