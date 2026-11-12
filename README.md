@@ -1,12 +1,4 @@
-# Repositorio individual — Introducción a la Ciencia de Datos
-
-**Paulina Gericke**
-Universidad de Montevideo · Facultad de Ciencias Empresariales y Economía · 2026
-
-Trabajos realizados durante el curso, organizados por clase. Material del
-curso: [DavytJ/Introduccion-a-la-ciencia-de-datos](https://github.com/DavytJ/Introduccion-a-la-ciencia-de-datos).
-
----
+Repositorio individual  Introducción a la Ciencia de Datos Paulina Gericke
 
 ## Estructura
 
@@ -26,18 +18,12 @@ repositorio-individual-paulina/
 └── README.md
 ```
 
-Todos los scripts usan **rutas relativas** a la raíz del repositorio (buscan la
-carpeta `.git`, igual que `here::here()` en R), así que funcionan en cualquier
-computadora sin cambiar nada. Los resultados se guardan en `salidas/`, que no se
-sube a GitHub porque se regenera al correr el código.
-
----
 
 ## Trabajos
 
-### Clase 2 — La caja negra · [`clase02_caja_negra/`](clase02_caja_negra)
+### Clase 2 — La caja negra 
 
-Dinámica de aula: objetos dentro de una caja cerrada que se tocan sin verlos.
+Teníamos objetos adentro de una caja cerrada que tocamos sin verlos.
 La caja representa el **proceso generador de datos (DGP)**: solo vemos lo que
 medimos, no lo que hay adentro.
 
@@ -49,7 +35,7 @@ medimos, no lo que hay adentro.
   tiene objetos muy distintos genera pesos "fantasma" (incluso negativos que
   hay que recortar).
 
-### Clases 3 y 4 — Carga de datos · [`clase03-04_carga_de_datos/`](clase03-04_carga_de_datos)
+### Clases 3 y 4 — Carga de datos · 
 
 Ejercicio en clase con un dataset abierto: **población por sexo, tramo de edad
 y departamento** (INE).
@@ -73,7 +59,7 @@ Diseñar la lógica antes de escribir la sintaxis.
 - `seudocodigo.py` y `seudocodigo.R`: la traducción de cada ejercicio a
   Python y a R, para comparar el bucle con la versión vectorizada.
 
-### Clase 6 — Encuesta · [`clase06_encuesta/`](clase06_encuesta)
+### Clase 6 — Encuesta ·
 
 Diseño de encuestas: **diseñar la tabla antes que el formulario**.
 
@@ -85,7 +71,7 @@ Diseño de encuestas: **diseñar la tabla antes que el formulario**.
   de las variables ordinales y controla que el filtro se haya respetado
   (faltante por diseño vs no respuesta).
 
-### Clase 7 — Carga de datos y rutas · [`clase07_carga_de_datos_y_rutas/`](clase07_carga_de_datos_y_rutas)
+### Clase 7 — Carga de datos y rutas 
 
 Calidad del aire en Montevideo (ozono, PM2.5) y conteo vehicular, datos
 abiertos de la Intendencia de Montevideo.
@@ -97,7 +83,7 @@ abiertos de la Intendencia de Montevideo.
 - Los CSV de la Intendencia son pesados y no están en el repo: descargarlos y
   guardarlos en `datos/` con los nombres indicados al inicio del script.
 
-### Clases 8 y 9 — Imagen · [`clase08-09_imagen/`](clase08-09_imagen)
+### Clases 8 y 9 — Imagen 
 
 Gráfico para el **proyecto macro** (nivel de actividad económica por
 departamento en Uruguay).
@@ -112,12 +98,12 @@ departamento en Uruguay).
 
 ![Desempleo por departamento](figuras/01_desempleo_evolucion.png)
 
-### Clase 10 — Script de datos de aire y tránsito · [`clase10_transito_y_aire/`](clase10_transito_y_aire)
+### Clase 10 — Script de datos de aire y tránsito 
 
-¿El tránsito ensucia el aire? Tres estaciones de Montevideo, junio de 2024,
+El tránsito ensucia el aire? Tres estaciones de Montevideo, junio de 2024,
 datos por hora (`datos/transito_aire_junio2024.csv`).
 
-- `transito_aire.py`, en cinco pasos, cada uno con su gráfico:
+- `transito_aire.py`, en cinco pasos, 5 gráficos:
   1. una semana de las tres series;
   2. el día típico, entre semana y fin de semana;
   3. correlación y recta: en Tres Cruces, NO2 = 18,3 + 0,79 × miles de
@@ -129,7 +115,7 @@ datos por hora (`datos/transito_aire_junio2024.csv`).
 - Nota: el archivo marca la hora como UTC pero los valores ya están en hora
   local (si se convierte, el tránsito "arranca" a las 3 de la mañana).
 
-### Clase IA — Ticket · [`claseIA_ticket/`](claseIA_ticket)
+### Clase IA — Ticket 
 
 Usar un modelo de IA como herramienta de **extracción de datos**: de la foto
 de un ticket a una tabla.
@@ -141,28 +127,4 @@ de un ticket a una tabla.
 - La clave va en `claseIA_ticket/clave_gemini.txt`, que está en `.gitignore`
   y **no se sube a GitHub**.
 
----
 
-## Cómo correr el código
-
-```bash
-git clone https://github.com/pauugericke-netizen/repositorio-individual-paulina.git
-cd repositorio-individual-paulina
-pip install -r requirements.txt
-python clase10_transito_y_aire/transito_aire.py
-```
-
-En Visual Studio Code los scripts están divididos en celdas `# %%` para
-correrlos por partes. Los scripts de R necesitan
-`install.packages(c("here", "readr", "dplyr"))`.
-
-| Script | Datos que necesita en `datos/` | ¿Incluidos? |
-|---|---|---|
-| `clase02_caja_negra/caja_negra.py` | ninguno (datos en el código) | — |
-| `clase03-04_carga_de_datos/*` | `2pobporsextodpto .csv` | no |
-| `clase05_seudocodigo/*` | `transito_aire_junio2024.csv` | sí |
-| `clase06_encuesta/cafeteria_ejercicios.py` | `Ejercicio intro - Hoja 2.csv` | no |
-| `clase07_carga_de_datos_y_rutas/carga_y_rutas.py` | CSV de ozono, PM2.5 y autoscope | no |
-| `clase08-09_imagen/imagen_proyecto_macro.py` | `desempleo_departamentos.csv` | sí |
-| `clase10_transito_y_aire/transito_aire.py` | `transito_aire_junio2024.csv` | sí |
-| `claseIA_ticket/leer_ticket.py` | `ticket.jpg` + clave de Gemini | foto sí, clave no |
