@@ -1,4 +1,4 @@
-# Clase 6 — Diseño de encuestas
+# Clase 6  Diseño de encuestas
 
 ## Ejercicio: de la tabla al cuestionario
 
