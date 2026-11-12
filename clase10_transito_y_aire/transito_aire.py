@@ -1,8 +1,6 @@
 # =============================================================================
 # Clase 10 — ¿El tránsito ensucia el aire?
 # Conteo vehicular, NO2 y PM2.5 por hora — Montevideo, junio de 2024
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
 # =============================================================================
 # Datos: datos/transito_aire_junio2024.csv (una fila por estación y hora)
 #   hora      fecha y hora (hora local, aunque el archivo la marque como UTC)
@@ -11,8 +9,6 @@
 #   pm25      material particulado < 2,5 micras (µg/m³)
 #   estacion  estación de monitoreo de calidad del aire
 #
-# Cada paso tiene un gráfico y al final una nota: qué vemos y qué todavía no sabemos.
-# Instalación (una sola vez):  pip install pandas numpy matplotlib
 # =============================================================================
 
 # %%
@@ -196,11 +192,11 @@ plt.show()
 
 # %%
 # =============================================================================
-# Conclusiones
+# Conclusiones en clase (el punto tres preguntarle a Joselina clase que viene)
 # =============================================================================
-# - En Tres Cruces el NO2 acompaña al tránsito, incluso después de sacar el
-#   ciclo diario: es la huella del tránsito que buscábamos.
+# - En Tres Cruces el NO2 acompaña al tránsito, después de sacar el
+#   ciclo diario --> es la huella del tránsito que buscábamos
 # - El PM2.5 no muestra esa relación: depende de otras fuentes (quema,
-#   viento, polvo) además de los autos.
+#   viento, polvo) además de los autos
 # - Límites: solo junio, una estación, NO2 con muchos huecos. Correlación no
-#   es causalidad: el clima puede mover a la vez tránsito y contaminación.
+#   es causalidad: el clima puede mover a la vez tránsito y contaminación
