@@ -9,9 +9,8 @@
 # distinto al resto del país.
 #
 # Datos: tasa de desempleo por departamento y año (Observatorio Social, MIDES,
-# en base a la ECH del INE). Guardar el CSV en datos/ con tres columnas:
-#   Departamento, Año, Desempleo_%
-# Si el archivo tiene otro nombre o columnas, ajustar ARCHIVO y COLUMNAS.
+# en base a la ECH del INE): datos/desempleo_departamentos.csv, una fila por
+# departamento y una columna por año (2006-2024).
 #
 # Instalación (una sola vez):  pip install pandas matplotlib
 # =============================================================================
@@ -38,27 +37,23 @@ OUT_FIG_DIR = RAIZ / "figuras"
 OUT_FIG_DIR.mkdir(exist_ok=True)
 
 MONTEVIDEO = "Montevideo"
-COLUMNAS = {"Departamento": "Departamento", "Año": "Año", "Desempleo_%": "Desempleo_%"}
 
 # %%
 # 1. Carga y preparación
+# El archivo viene "ancho" (una columna por año), separado por ; y con coma
+# decimal. Para graficar se pasa a formato "largo": una fila por departamento y año.
 if not ARCHIVO.exists():
     raise FileNotFoundError(f"No se encontró el archivo en: {ARCHIVO}")
 
-try:
-    desempleo = pd.read_csv(ARCHIVO, encoding="utf-8")
-except UnicodeDecodeError:
-    desempleo = pd.read_csv(ARCHIVO, encoding="latin-1")
+ancho = pd.read_csv(ARCHIVO, sep=";", decimal=",", encoding="utf-8-sig")
+print("Así llega el archivo:", ancho.shape)
 
-desempleo = desempleo.rename(columns={v: k for k, v in COLUMNAS.items()})
-
-# Tipos: año entero, desempleo numérico (acepta coma decimal)
-desempleo["Año"] = pd.to_numeric(desempleo["Año"], errors="coerce").astype("Int64")
-desempleo["Desempleo_%"] = pd.to_numeric(
-    desempleo["Desempleo_%"].astype(str).str.replace(",", ".", regex=False),
-    errors="coerce")
+desempleo = ancho.melt(id_vars="Departamento", var_name="Año", value_name="Desempleo_%")
+desempleo["Año"] = desempleo["Año"].astype(int)
 desempleo["Departamento"] = desempleo["Departamento"].str.strip()
-desempleo = desempleo.dropna(subset=["Año", "Desempleo_%"])
+
+# La fila "Total" es el promedio del país, no un departamento: se saca del gráfico
+desempleo = desempleo[desempleo["Departamento"] != "Total"].dropna(subset=["Desempleo_%"])
 
 # 2. Perfilado rápido
 print("Dimensiones:", desempleo.shape)
@@ -94,12 +89,16 @@ ax.set_title("Evolución de la tasa de desempleo por departamento (2006-2024)\n"
              "(gris = interior, rojo = Montevideo)")
 
 ax.set_xlabel("Año")  # Nombre del eje X.
+ax.set_xticks(range(2006, 2025, 2))  # años enteros, sin decimales
 ax.set_ylabel("Desempleo (%)")  # nombre del eje y
 ax.legend()  # muestra la leyenda
 fig.tight_layout()  
 
 # Guarda el gráfico como archivo PNG en la carpeta de figuras
-fig.savefig(OUT_FIG_DIR / "01_desempleo_evolucion.png")
+fig.savefig(OUT_FIG_DIR / "01_desempleo_evolucion.png", dpi=150)
+
+# Versión en PDF para el informe
+fig.savefig(RAIZ / "clase08-09_imagen" / "imagen_proyecto_macro.pdf")
 
 plt.show()  # muestra el gráfico
 plt.close(fig)

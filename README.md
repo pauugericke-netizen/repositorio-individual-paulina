@@ -104,10 +104,13 @@ departamento en Uruguay).
 
 - `imagen_proyecto_macro.py`: evolución de la tasa de desempleo por
   departamento (2006–2024), con el interior en gris como contexto y
-  Montevideo resaltado en rojo. Lee `datos/desempleo_departamentos.csv`
-  (columnas `Departamento`, `Año`, `Desempleo_%`) y guarda el gráfico en
-  `figuras/01_desempleo_evolucion.png`.
-- `imagen_proyecto_macro.pdf`: versión en PDF de la imagen.
+  Montevideo resaltado en rojo. Lee la tabla del Observatorio Social (MIDES)
+  en `datos/desempleo_departamentos.csv` (formato ancho, un año por columna),
+  la pasa a formato largo, saca la fila del total país y guarda el gráfico.
+- `imagen_proyecto_macro.pdf` y [`figuras/01_desempleo_evolucion.png`](figuras/01_desempleo_evolucion.png):
+  el gráfico resultante.
+
+![Desempleo por departamento](figuras/01_desempleo_evolucion.png)
 
 ### Clase 10 — Script de datos de aire y tránsito · [`clase10_transito_y_aire/`](clase10_transito_y_aire)
 
@@ -160,6 +163,6 @@ correrlos por partes. Los scripts de R necesitan
 | `clase05_seudocodigo/*` | `transito_aire_junio2024.csv` | sí |
 | `clase06_encuesta/cafeteria_ejercicios.py` | `Ejercicio intro - Hoja 2.csv` | no |
 | `clase07_carga_de_datos_y_rutas/carga_y_rutas.py` | CSV de ozono, PM2.5 y autoscope | no |
-| `clase08-09_imagen/imagen_proyecto_macro.py` | `desempleo_departamentos.csv` | no |
+| `clase08-09_imagen/imagen_proyecto_macro.py` | `desempleo_departamentos.csv` | sí |
 | `clase10_transito_y_aire/transito_aire.py` | `transito_aire_junio2024.csv` | sí |
 | `claseIA_ticket/leer_ticket.py` | `ticket.jpg` + clave de Gemini | foto sí, clave no |
