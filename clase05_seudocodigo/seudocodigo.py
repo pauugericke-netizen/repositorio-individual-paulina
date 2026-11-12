@@ -1,10 +1,5 @@
 # =============================================================================
-# Clase 5 — Del seudocódigo al código (Python)
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
-# =============================================================================
-# Cada bloque traduce un ejercicio de seudocodigo.md.
-# Instalación (una sola vez):  pip install pandas
+#Código en python de leti y paz, intento hacerlo en python para acostumbrarme x proyecto
 # =============================================================================
 
 # %%
