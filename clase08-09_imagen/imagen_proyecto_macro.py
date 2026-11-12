@@ -1,9 +1,6 @@
 # =============================================================================
 # Clases 8 y 9 — Imagen del proyecto macro
-# Evolución de la tasa de desempleo por departamento (2006-2024)
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
-# =============================================================================
+#===========================================================
 # Idea del gráfico: todos los departamentos del interior en gris como
 # contexto y Montevideo resaltado en rojo, para ver si la capital se mueve
 # distinto al resto del país.
