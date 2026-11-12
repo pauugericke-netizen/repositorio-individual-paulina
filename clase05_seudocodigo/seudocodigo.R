@@ -1,11 +1,4 @@
-# =============================================================================
-# Clase 5 — Del seudocódigo al código (R)
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
-# =============================================================================
-# Cada bloque traduce un ejercicio de seudocodigo.md.
-# install.packages(c("here", "readr"))
-# =============================================================================
+#arranqué a hacer los códigos en R, al final me cambié a Python por el trabajo final así lo hacía con mis compañeras en visual, entonces me quedaron ambos códigos
 
 library(here)
 library(readr)
