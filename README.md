@@ -1,6 +1,5 @@
 Repositorio individual  Introducción a la Ciencia de Datos Paulina Gericke
 
-> Organización del repositorio y parte del código realizados con asistencia de Claude (IA), según lo indicado por la docente.
 
 ## Estructura
 
