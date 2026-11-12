@@ -1,10 +1,6 @@
 # =============================================================================
-# Clase 6 — Encuesta a clientes de la cafetería: carga y perfilado
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
-# =============================================================================
-# Datos: respuestas de la encuesta de la cafetería (cuestionario en
-# cuestionario_cafeteria.md). El CSV va en la carpeta datos/ del repo.
+# Clase 6  Encuesta a clientes de la cafetería: carga y perfilado
+
 # =============================================================================
 
 # %%
