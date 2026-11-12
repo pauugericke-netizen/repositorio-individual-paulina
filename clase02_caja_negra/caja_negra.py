@@ -1,17 +1,10 @@
-# =============================================================================
-# Clase 2 — La caja negra: de la medición al dataset
-# Introducción a la Ciencia de Datos — UM, FCEE
-# Paulina Gericke
-# =============================================================================
+
 # Dinámica: dentro de una caja cerrada (el "proceso generador de datos", DGP)
 # hay objetos. Cada estudiante toca uno sin verlo y registra lo que percibe.
 # Este script:
 #   1. pasa esas mediciones a un DataFrame con los tipos correctos
 #   2. genera datos nuevos a partir de la muestra (bootstrap y paramétrico)
 #   3. compara la muestra real con los datos sintéticos
-#
-# Instalación (una sola vez):  pip install pandas numpy matplotlib
-# =============================================================================
 
 # %%
 from pathlib import Path
