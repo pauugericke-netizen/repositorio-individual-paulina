@@ -1,11 +1,11 @@
-# Clase 5 — Seudocódigo
+# Clase 5  Seudocódigo hecho en google docs copiado y pegado aquí
 
 El seudocódigo describe la lógica de un programa (qué pasos, en qué orden, qué
 hacer si algo falla) antes de escribirlo en un lenguaje concreto. Cada
 ejercicio de esta carpeta tiene primero el seudocódigo y después su traducción
 a Python (`seudocodigo.py`) y a R (`seudocodigo.R`).
 
-## Ejercicio 1 — Ingesta con control de codificación
+## Ejercicio 1  Ingesta con control de codificación
 
 ```text
 INICIO Ingesta_Datos
@@ -25,7 +25,7 @@ INICIO Ingesta_Datos
 FIN Ingesta_Datos
 ```
 
-## Ejercicio 2 — Filtrar temperaturas
+## Ejercicio 2  Filtrar temperaturas
 
 ```text
 INICIO Filtrar_Temperaturas
@@ -40,7 +40,7 @@ INICIO Filtrar_Temperaturas
 FIN Filtrar_Temperaturas
 ```
 
-## Ejercicio 3 — Perfilado de un DataFrame
+## Ejercicio 3  Perfilado de un DataFrame
 
 ```text
 INICIO Perfilar(df)
@@ -55,7 +55,7 @@ INICIO Perfilar(df)
 FIN Perfilar
 ```
 
-## Ejercicio 4 — Clasificar temperaturas
+## Ejercicio 4  Clasificar temperaturas
 
 ```text
 INICIO Clasificar_Temperaturas
@@ -69,10 +69,4 @@ INICIO Clasificar_Temperaturas
 FIN Clasificar_Temperaturas
 ```
 
-## Para recordar
 
-- El seudocódigo no depende del lenguaje: el mismo plan sale en Python y en R.
-- En R el filtro se hace en una línea (`x[x > 20]`) porque las operaciones son
-  vectorizadas; en Python con listas se usa un bucle o una *list comprehension*.
-- Pensar primero qué puede fallar (archivo inexistente, codificación) evita
-  errores difíciles de leer después.
